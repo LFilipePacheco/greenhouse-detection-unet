@@ -16,8 +16,8 @@ horticulture is one of the main sources of aquifer contamination by
 nitrates. At the same time, there were grounds to suspect that most
 growers do not register their greenhouse parcels in the official
 land-parcel identification system (iSIP, managed by IFAP) — a suspicion the
-results confirmed: **hundreds of greenhouses detected in the study do not intersect
-any parcel registered as “protected crops"**, quantifying for the first time the
+results confirmed: **1,209 detected greenhouses do not intersect any parcel
+registered as "protected crops"**, quantifying for the first time the
 extent of under-registration in the zone.
 
 A complete, up-to-date greenhouse layer is therefore both a compliance
@@ -86,7 +86,7 @@ detected greenhouse — ready to be crossed with the other themes relevant to
 Vulnerable Zone monitoring: land use, farming practices, parcel registration
 status and nitrate contamination risk.
 
-The headline finding: **hundreds of greenhouses detected in the study without a matching
+The headline finding: **1,209 detected greenhouses without a matching
 "protected crops" parcel registration**, evidencing systematic
 under-registration in iSIP-IFAP and giving the monitoring authority, for
 the first time, an independent and repeatable census of protected
@@ -110,7 +110,7 @@ scikit-learn · Sentinel-2 L2A imagery (Copernicus)
 
 ## About the data and the model
 
-The satellite imagery is open data, but the ground-truth
+The satellite imagery is open Copernicus data, but the ground-truth
 polygons, the trained model weights and the detection results are
 institutional property of CCDR-Norte, I.P. and are not published here. The
 code is shared as a working reference implementation of the full
