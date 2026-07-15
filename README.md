@@ -15,11 +15,6 @@
 *Inference diagnostics for one processing block: area of interest, mask, probability map, binary mask, detections and area distribution.*
 
 
-![Inference diagnostic panel](docs/inference_panel.png)
-*Inference diagnostics for one processing block: area of interest, mask, probability map, binary mask, detections and area distribution.*
-
-
-
 ## Why detect greenhouses
 
 Identifying the greenhouses present in the Esposende – Vila do Conde
