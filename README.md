@@ -110,7 +110,7 @@ scikit-learn · Sentinel-2 L2A imagery (Copernicus)
 
 ## About the data and the model
 
-The satellite imagery is open Copernicus data, but the ground-truth
+The satellite imagery is open data, but the ground-truth
 polygons, the trained model weights and the detection results are
 institutional property of CCDR-Norte, I.P. and are not published here. The
 code is shared as a working reference implementation of the full
