@@ -2,12 +2,13 @@
 ### U-Net semantic segmentation · Esposende – Vila do Conde Vulnerable Zone, Portugal
 
 > Automatic mapping of greenhouse structures across a Nitrates Directive
-> Vulnerable Zone using a convolutional neural network (U-Net) applied to
-> Sentinel-2 imagery — revealing intensive horticulture absent from official
+> Vulnerable Zone using a convolutional neural network (U-Net) — revealing intensive horticulture absent from official
 > land-parcel registers.
 
 ---
+![Detected greenhouses over aerial imagery](docs/detections_overlay.png)
 
+![Inference diagnostic panel](docs/inference_panel.png)
 ## Why detect greenhouses
 
 Identifying the greenhouses present in the Esposende – Vila do Conde
