@@ -106,7 +106,7 @@ own imagery, ground truth and output folder.
 ## Stack
 
 Python · TensorFlow/Keras · rasterio · GeoPandas · OpenCV · Shapely ·
-scikit-learn · Sentinel-2 L2A imagery (Copernicus)
+scikit-learn
 
 ## About the data and the model
 
