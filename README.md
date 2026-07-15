@@ -129,9 +129,6 @@ weights and the detection results are institutional property of
 CCDR-Norte, I.P. and are not published here. The code is shared as a
 working reference implementation of the full train-and-detect pipeline.
 
-A natural next step is the companion **ortoSat2023-FalsaCor (IRG)** layer
-from the same DGT service: adding the near-infrared band would sharpen the
-spectral separation between greenhouse plastic and vegetation.
 
 ---
 
