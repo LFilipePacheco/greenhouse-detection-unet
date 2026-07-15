@@ -7,8 +7,13 @@
 > land-parcel registers.
 
 ---
+
 ![Detected greenhouses over aerial imagery](docs/detections_overlay.png)
 *Detected greenhouse polygons (yellow) over high-resolution orthoimagery — model output after area filtering and GIS validation.*
+
+![Inference diagnostic panel](docs/inference_panel.png)
+*Inference diagnostics for one processing block: area of interest, mask, probability map, binary mask, detections and area distribution.*
+
 
 ![Inference diagnostic panel](docs/inference_panel.png)
 *Inference diagnostics for one processing block: area of interest, mask, probability map, binary mask, detections and area distribution.*
