@@ -2,13 +2,18 @@
 ### U-Net semantic segmentation · Esposende – Vila do Conde Vulnerable Zone, Portugal
 
 > Automatic mapping of greenhouse structures across a Nitrates Directive
-> Vulnerable Zone using a convolutional neural network (U-Net).
+> Vulnerable Zone using a convolutional neural network (U-Net) applied to
+> high-resolution satellite orthoimagery (DGT ortoSat2023) — revealing intensive horticulture absent from official
+> land-parcel registers.
+
 ---
 ![Detected greenhouses over aerial imagery](docs/detections_overlay.png)
 *Detected greenhouse polygons (yellow) over high-resolution orthoimagery — model output after area filtering and GIS validation.*
 
 ![Inference diagnostic panel](docs/inference_panel.png)
 *Inference diagnostics for one processing block: area of interest, mask, probability map, binary mask, detections and area distribution.*
+
+
 
 ## Why detect greenhouses
 
@@ -42,7 +47,7 @@ sensing for semantic segmentation. The process ran in three stages:
 
 A set of greenhouses previously identified and validated in a GIS
 environment served as ground truth to "teach" the model to recognise these
-structures in Sentinel-2 composites. To increase robustness and
+structures in high-resolution true-colour orthoimagery (RGB). To increase robustness and
 generalisation:
 
 - the training set was enriched with **image augmentation** (rotations,
@@ -108,15 +113,20 @@ own imagery, ground truth and output folder.
 ## Stack
 
 Python · TensorFlow/Keras · rasterio · GeoPandas · OpenCV · Shapely ·
-scikit-learn
+scikit-learn · DGT ortoSat2023 orthoimagery (open WMS, Direção-Geral do Território)
 
 ## About the data and the model
 
-The satellite imagery is open data, but the ground-truth
-polygons, the trained model weights and the detection results are
-institutional property of CCDR-Norte, I.P. and are not published here. The
-code is shared as a working reference implementation of the full
-train-and-detect pipeline.
+The imagery is the open **ortoSat2023** high-resolution satellite
+orthoimagery service of the Direção-Geral do Território (DGT), used and
+reproduced with attribution. The ground-truth polygons, the trained model
+weights and the detection results are institutional property of
+CCDR-Norte, I.P. and are not published here. The code is shared as a
+working reference implementation of the full train-and-detect pipeline.
+
+A natural next step is the companion **ortoSat2023-FalsaCor (IRG)** layer
+from the same DGT service: adding the near-infrared band would sharpen the
+spectral separation between greenhouse plastic and vegetation.
 
 ---
 
