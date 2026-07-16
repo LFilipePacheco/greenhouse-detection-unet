@@ -28,11 +28,11 @@ registered as "protected crops"**, quantifying for the first time the
 extent of under-registration in the zone.
 
 A complete, up-to-date greenhouse layer is therefore both a compliance
-instrument and a risk-mapping input: it can be crossed with land use,
+instrument and a risk-mapping input: it can be combined with land use,
 farming practices and nitrate concentration data to target monitoring and
 enforcement where pressure on groundwater is highest.
 
-Manual mapping at this scale is impractical — the zone spans thousands of
+Manual mapping at this scale is impractical — the zone covers thousands of
 hectares across three municipalities, and greenhouse stock changes from
 season to season. The task called for automation.
 
