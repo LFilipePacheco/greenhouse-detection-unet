@@ -39,7 +39,7 @@ resolved.
 
 Intensive horticulture under plastic is one of the main sources of aquifer
 contamination by nitrates in the Esposende – Vila do Conde Vulnerable Zone
-(*Zona Vulnerável*, ZV1). A complete, up-to-date greenhouse layer is both a
+(*Zona Vulnerável*, ZV). A complete, up-to-date greenhouse layer is both a
 compliance instrument and a risk-mapping input: crossed with land use, farming
 practices and nitrate concentrations, it lets the monitoring authority target
 enforcement where pressure on groundwater is highest.
@@ -212,7 +212,7 @@ Documenting the dead ends is part of the result:
 
 ## Future work
 
-- Scale the model to all 19 masks (~20,000 ha) for a **validated, zone-wide
+- Scale the model to all the ZV (~20,000 ha) for a **validated, zone-wide
   greenhouse census** — the basis for a defensible under-registration figure
   against the iSIP-IFAP registry (~15–25 min per mask on CPU).
 - Enlarge rigorous ground truth (several sub-zones, ≥300 greenhouses) and
