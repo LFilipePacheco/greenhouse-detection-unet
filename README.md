@@ -163,10 +163,12 @@ previously attributed to the model was largely a **filter artefact**.
 The single most determinant factor in the metrics was **not** any model choice —
 it was ground-truth quality. Reusing irregular polygons inherited from the 2025
 detection inflated the reference and fragmented long greenhouses, penalising
-correct detections as false positives. Digitising rigorous ground truth from
-scratch raised object precision **0.83 → 0.92** and area precision
-**0.88 → 0.97**, confirming that most apparent "false positives" were in fact
-correct detections.
+correct detections as false positives. In an intermediate evaluation (model E2,
+area filter still active), digitising rigorous ground truth from scratch raised
+object precision **0.83 → 0.92** and area precision **0.88 → 0.97**, confirming
+that most apparent "false positives" were in fact correct detections. These
+figures isolate the ground-truth effect; the final reference result is the E0,
+no-cap figure reported in the headline.
 
 ## What was tested and rejected
 
