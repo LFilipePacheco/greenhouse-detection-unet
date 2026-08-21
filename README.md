@@ -67,13 +67,7 @@ order of impact:
    scale and classified whole fields as greenhouse. **Fix:** `/255` throughout.
    This single change moved object precision from **0.13 → 0.85** on the test
    mask.
-2. **Row/column swap** — `rasterio ... index(x, y)` returns `(row, col)`; the
-   code unpacked `(col, row)`, transposing the read window.
-3. **Bounding box instead of polygon** — prediction covered the mask's bounding
-   box (e.g. 701 ha) rather than the true polygon (e.g. 474 ha), generating
-   detections outside the area of interest. **Fix:** rasterise the polygon and
-   null the exterior.
-4. **Obsolete maximum-area filter** — a `MAX_AREA_M2 = 3000` cap, introduced in
+2. **Obsolete maximum-area filter** — a `MAX_AREA_M2 = 3000` cap, introduced in
    2025 to contain the false-positive blobs the normalisation bug produced. Once
    normalisation was fixed, this cap became harmful: it silently deleted
    contiguous tunnel blocks (real large greenhouses). Removing it raised area
@@ -200,17 +194,11 @@ Documenting the dead ends is part of the result:
 ## Limitations
 
 - The reliable metrics rest on 231–536 greenhouses (larger zones) and 83 in the
-  rigorous sub-zone; the rigorous sub-zone (~50 ha) is small and should be
-  enlarged to consolidate paper-grade figures.
+  rigorous sub-zone;
 - Area recall (0.85) was measured only on the rigorous sub-zone; it should be
   replicated on another.
-- Inter-annotator agreement on the definition of "greenhouse" was not formally
-  measured.
 - A single image source and epoch (*ortoSat2023*); temporal and cross-sensor
   generalisation not assessed.
-- File-version management was a recurrent source of error (same-named masks with
-  different areas). Versioned naming and systematic area/overlap checks are
-  recommended.
 
 ## Future work
 
@@ -219,28 +207,9 @@ Documenting the dead ends is part of the result:
   against the iSIP-IFAP registry.
 - Enlarge rigorous ground truth (several sub-zones, ≥300 greenhouses) and
   replicate the area metric on a second sub-zone.
-- Inter-annotator agreement study on the "greenhouse" definition.
 - Explore higher-resolution or multispectral imagery for the physical limit of
   the plastic signature.
 
-## Repository contents
-
-| File | Purpose |
-|---|---|
-| `deteta_estufas_DL_completo_v2.py` | Local inference (sliding window) with all four fixes and the (switchable) geometric filter. **Recommended:** threshold 0.4, geometric filter off, no max-area cap |
-| `treino_estufas_colab_comentado.py` | **Reference** training pipeline (E0): U-Net, RAM-constant augmentation generator, integrated inference and evaluation, annotated |
-| `treino_estufas_E2_colab.py` | E2 variant: pretrained ResNet34 encoder, recall-oriented loss, multi-zone |
-| `recortar_fase0.py` | Clips the orthophoto to training/test masks (LZW) |
-| `avaliar_detecao.py` | Object-level evaluation (IoU ≥ 0.3); TP/FP/FN diagnostic layers |
-| `avaliar_por_area.py` | Area-level evaluation, robust to polygon fragmentation |
-| `pos_processar_e_avaliar.py` | Decoupled post-processing: shape metrics, calibratable filters, threshold search |
-| `posproc_morfologico.py` | Hole filling + morphological closing + dissolve, with area re-evaluation |
-| `requirements.txt` | Python dependencies |
-
-Each trained model is paired with a JSON metadata file (normalisation, bands,
-threshold, loss, seed, metrics). Paths and parameters live in the configuration
-section of each script — point them at your own imagery, ground truth and output
-folder.
 
 ## Reproduction recipe (final model)
 
