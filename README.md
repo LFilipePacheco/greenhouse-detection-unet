@@ -58,8 +58,7 @@ for automation.
 
 The 2025 pilot produced too many false positives (asphalt roads, rooftops),
 requiring extensive manual cleaning. Rather than patch it, the 2026 campaign
-diagnosed the root causes and rebuilt the pipeline. Four defects were found, in
-order of impact:
+diagnosed the root causes and rebuilt the pipeline. The two most impactful defects were:
 
 1. **Inconsistent normalisation between training and inference** — the dominant
    cause of false positives. Training normalised by `/255`; inference stretched
@@ -104,6 +103,8 @@ limit — the full raster was never uploaded.
 
 ## Experiments and results
 
+T## Experiments and results
+
 Two models were trained and compared:
 
 - **E0 (retrained baseline)** — U-Net (~31 M parameters), combined loss
@@ -113,14 +114,20 @@ Two models were trained and compared:
   pretrained **ResNet34** encoder, recall-oriented loss, **multi-zone** training
   (~3× the data of E0).
 
-Object-level evaluation (IoU ≥ 0.3), journey to resolving false positives:
+Object-level evaluation (IoU ≥ 0.3):
 
-| Run | Test zone | GT greenhouses | Precision | Recall | F1 |
-|---|---|---:|---:|---:|---:|
-| Baseline 2025 (with post-proc.) | mask 1 | 33 | 0.13 | 0.76 | 0.23 |
-| E0 (no filter, thr 0.4) | mask 1 | 33 | 0.85 | 0.88 | 0.87 |
-| E0 (no filter) | mask 2 | 231 | 0.83 | 0.72 | 0.77 |
-| E2 (multi-zone) | 488 ha zone | 536 | 0.83 | 0.71 | 0.77 |
+| Run | Test zone | GT | Precision | Recall | F1 | Note |
+|---|---|---:|---:|---:|---:|---|
+| Baseline 2025 | mask 1 | 33 | 0.13 | 0.76 | 0.23 | pre-fix |
+| E0 (no filter, thr 0.4) | mask 1 | 33 | 0.85 | 0.88 | 0.87 | small sample |
+| E0 | mask 2 | 231 | 0.83 | 0.72 | 0.77 | intermediate, area cap active |
+| E2 (multi-zone) | 488 ha | 536 | 0.83 | 0.71 | 0.77 | intermediate, area cap active |
+| **E0 — reference** | **rigorous sub-zone** | **83** | **0.84** | **0.71** | **0.77** | **final, no cap** |
+
+> The intermediate runs were measured with the area cap still active; the final
+> reference figure (E0, rigorous sub-zone, no cap) is the one in the headline.
+> Object F1 is stable (~0.77) across all representative zones — the cap removal
+> mainly raised **area** recall (0.44 → 0.85), not the object metrics.
 
 Key observations:
 
@@ -128,6 +135,7 @@ Key observations:
 - The larger zones (231 and 536 greenhouses) give the reliable object figure:
   **F1 ≈ 0.77**.
 - **E0 ≈ E2**: a pretrained encoder plus 3× the data did **not** improve F1.
+
 
 ### The area filter — a self-correction
 
