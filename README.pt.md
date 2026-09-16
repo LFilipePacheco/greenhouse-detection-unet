@@ -34,7 +34,6 @@ processamento (ver *Trabalho futuro*).
 A cartografia manual a esta escala é impraticável: estão em causa milhares de
 hectares distribuídos por três municípios, com um parque de estufas que se
 altera de campanha para campanha. A tarefa exigia automatização.
----
 
 ![Estufas detetadas sobre ortoimagem](docs/detections_overlay.png)
 *Polígonos de estufas detetadas (amarelo) sobre ortoimagem de alta resolução: resultado do modelo final após validação em SIG.*
