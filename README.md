@@ -49,8 +49,7 @@ enforcement where pressure on groundwater is highest.
 There are also grounds to suspect substantial under-registration of greenhouse
 parcels in the official land-parcel system (iSIP, managed by IFAP). Producing a
 **validated, zone-wide census** to quantify that gap is the operational goal the
-model now makes possible, once inference is scaled to all 19 processing masks
-(see *Future work*).
+model now makes possible.
 
 Manual mapping at this scale is impractical — thousands of hectares across three
 municipalities, with greenhouse stock changing season to season. The task called
@@ -212,9 +211,6 @@ Documenting the dead ends is part of the result:
 
 ## Future work
 
-- Scale the model to all the ZV (~20,000 ha) for a **validated, zone-wide
-  greenhouse census** — the basis for a defensible under-registration figure
-  against the iSIP-IFAP registry.
 - Enlarge rigorous ground truth (several sub-zones, ≥300 greenhouses) and
   replicate the area metric on a second sub-zone.
 - Explore higher-resolution or multispectral imagery for the physical limit of
