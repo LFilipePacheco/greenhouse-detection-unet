@@ -13,6 +13,28 @@ GB **[English](README.md)**
 > a área das estufas**.
 
 ---
+## Porquê detetar estufas
+
+A horticultura intensiva sob plástico é uma das principais fontes de
+contaminação dos aquíferos por nitratos na Zona Vulnerável de Esposende – Vila
+do Conde (ZV). Uma camada completa e atualizada de estufas é simultaneamente um
+instrumento de controlo do cumprimento das normas e um elemento para a
+cartografia do risco. O seu cruzamento com a ocupação do solo, as práticas
+agrícolas e as concentrações de nitratos permite à entidade de monitorização
+direcionar a fiscalização para os locais onde a pressão sobre as águas
+subterrâneas é mais elevada.
+
+Existem também razões para suspeitar de um sub-registo significativo das
+parcelas com estufas no sistema oficial de identificação parcelar (iSIP, gerido
+pelo IFAP). A produção de um **inventário validado de estufas para toda a zona**,
+que permita quantificar essa diferença, constitui o objetivo operacional que o
+modelo torna agora possível, após a expansão da inferência às 19 máscaras de
+processamento (ver *Trabalho futuro*).
+
+A cartografia manual a esta escala é impraticável: estão em causa milhares de
+hectares distribuídos por três municípios, com um parque de estufas que se
+altera de campanha para campanha. A tarefa exigia automatização.
+
 
 ![Estufas detetadas sobre ortoimagem](docs/detections_overlay.png)
 *Polígonos de estufas detetadas (amarelo) sobre ortoimagem de alta resolução: resultado do modelo final após validação em SIG.*
@@ -39,27 +61,6 @@ A precisão constitui o ponto forte mais consistente: 0,84 por objeto e 0,96 por
 área, mantendo-se estável entre zonas. O problema histórico de falsos positivos
 do projeto-piloto de 2025 foi resolvido.
 
-## Porquê detetar estufas
-
-A horticultura intensiva sob plástico é uma das principais fontes de
-contaminação dos aquíferos por nitratos na Zona Vulnerável de Esposende – Vila
-do Conde (ZV). Uma camada completa e atualizada de estufas é simultaneamente um
-instrumento de controlo do cumprimento das normas e um elemento para a
-cartografia do risco. O seu cruzamento com a ocupação do solo, as práticas
-agrícolas e as concentrações de nitratos permite à entidade de monitorização
-direcionar a fiscalização para os locais onde a pressão sobre as águas
-subterrâneas é mais elevada.
-
-Existem também razões para suspeitar de um sub-registo significativo das
-parcelas com estufas no sistema oficial de identificação parcelar (iSIP, gerido
-pelo IFAP). A produção de um **inventário validado de estufas para toda a zona**,
-que permita quantificar essa diferença, constitui o objetivo operacional que o
-modelo torna agora possível, após a expansão da inferência às 19 máscaras de
-processamento (ver *Trabalho futuro*).
-
-A cartografia manual a esta escala é impraticável: estão em causa milhares de
-hectares distribuídos por três municípios, com um parque de estufas que se
-altera de campanha para campanha. A tarefa exigia automatização.
 
 ## De 2025 a 2026: o que mudou
 
