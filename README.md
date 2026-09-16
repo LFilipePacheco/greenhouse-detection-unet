@@ -1,3 +1,5 @@
+🇵🇹 **[Versão portuguesa](README.pt.md)**
+
 # Greenhouse detection from satellite imagery with deep learning
 ### U-Net semantic segmentation · Esposende – Vila do Conde Vulnerable Zone, Portugal
 
