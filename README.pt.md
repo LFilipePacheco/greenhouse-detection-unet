@@ -20,19 +20,18 @@ contaminação dos aquíferos por nitratos na Zona Vulnerável de Esposende – 
 do Conde (ZV). O inventário completo e atualizado de estufas é simultaneamente um
 instrumento de controlo do cumprimento das normas e um elemento para a
 cartografia do risco. O seu cruzamento com a ocupação do solo, as práticas
-agrícolas e as concentrações de nitratos permite à entidade de monitorização
-direcionar a fiscalização para os locais onde a pressão sobre as águas
+agrícolas e as concentrações de nitratos permite a monitorização
+e a fiscalização nos locais onde a pressão sobre as águas
 subterrâneas é mais elevada.
 
 Existem também razões para suspeitar de um sub-registo significativo das
 parcelas com estufas no sistema oficial de identificação parcelar (iSIP, gerido
 pelo IFAP). A produção de um **inventário validado de estufas para toda a zona**,
 que permita quantificar essa diferença, constitui o objetivo operacional que o
-modelo torna agora possível, após a expansão da inferência às 19 máscaras de
-processamento (ver *Trabalho futuro*).
+modelo torna agora possível.
 
 A cartografia manual a esta escala é impraticável: estão em causa milhares de
-hectares distribuídos por três municípios, com um parque de estufas que se
+hectares distribuídos por quatro municípios, com um parque de estufas que se
 altera de campanha para campanha. A tarefa exigia automatização.
 
 ![Estufas detetadas sobre ortoimagem](docs/detections_overlay.png)
@@ -227,9 +226,6 @@ Documentar as abordagens sem sucesso também faz parte do resultado:
 
 ## Trabalho futuro
 
-- Aplicar o modelo a toda a ZV (~20 000 ha), produzindo um **inventário validado
-  de estufas para toda a zona**, como base para uma quantificação defensável do
-  sub-registo face ao cadastro iSIP-IFAP.
 - Aumentar a verdade de terreno rigorosa, abrangendo várias subzonas e pelo menos
   300 estufas, e reproduzir a métrica de área numa segunda subzona.
 - Explorar imagens de maior resolução ou multiespectrais para avaliar o limite
