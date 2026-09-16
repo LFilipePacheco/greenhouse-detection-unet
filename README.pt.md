@@ -17,7 +17,7 @@ GB **[English](README.md)**
 
 A horticultura intensiva sob plástico é uma das principais fontes de
 contaminação dos aquíferos por nitratos na Zona Vulnerável de Esposende – Vila
-do Conde (ZV). Uma camada completa e atualizada de estufas é simultaneamente um
+do Conde (ZV). O inventário completo e atualizado de estufas é simultaneamente um
 instrumento de controlo do cumprimento das normas e um elemento para a
 cartografia do risco. O seu cruzamento com a ocupação do solo, as práticas
 agrícolas e as concentrações de nitratos permite à entidade de monitorização
