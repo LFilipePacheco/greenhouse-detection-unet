@@ -1,4 +1,4 @@
-🇵🇹 **[English](README.md)**
+GB **[English](README.md)**
 
 # Deteção de estufas em imagens de satélite com aprendizagem profunda
 ### Segmentação semântica com U-Net · Zona Vulnerável de Esposende – Vila do Conde, Portugal
