@@ -18,7 +18,7 @@ from shapely.geometry import box
 import numpy as np
 
 # === CONFIGURAÇÃO ===
-LIMITE_ZV = r"data/limite_ZV.gpkg"  # o teu limite da ZV
+LIMITE_ZV = r"data/limite_ZV.gpkg"  # o limite da ZV
 SAIDA     = r"data/tiles_zv.gpkg"
 TILE_M    = 2000     # lado do tile em metros
 OVERLAP_M = 64       # sobreposição entre tiles (m) para não perder estufas na fronteira
