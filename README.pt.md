@@ -16,7 +16,7 @@
 ![Estufas detetadas sobre ortoimagem](docs/detections_overlay.png)
 <p align="center"><sub>Polígonos de estufas detetadas (amarelo) sobre ortoimagem de alta resolução: resultado do modelo final, após validação em SIG.</sub></p>
 
-> Pipeline reprodutível de treino e deteção para cartografar estufas numa Zona
+> *Pipeline* reprodutível de treino e deteção para cartografar estufas numa Zona
 > Vulnerável ao abrigo da Diretiva Nitratos. Construído sobre três princípios:
 > **diagnóstico de erros**, **separação rigorosa entre treino e teste** e
 > **verdade de terreno criteriosa** — e sobre o hábito de desconfiar dos próprios
@@ -30,7 +30,7 @@
 Avaliação sobre **verdade de terreno vetorizada de raiz** (83 estufas numa subzona
 de ~50 ha), modelo E0 sem limite máximo de área:
 
-| Tarefa | Precisão | Recall | F1 |
+| Tarefa | Precisão | sensibilidade | F1 |
 |---|---:|---:|---:|
 | **Deteção por objeto** (localizar/contar) | **0,84** | **0,71** | **0,77** |
 | **Cobertura de área** (quantificar) | **0,96** | **0,85** | **0,90** |
@@ -64,7 +64,7 @@ histórico de falsos positivos do ensaio de 2025 está resolvido.
 
 ![Da estufa à água subterrânea](docs/pt/nitratos.png)
 
-A horticultura intensiva sob plástico é uma das principais fontes de contaminação
+A horticultura intensiva em estufa é uma das principais fontes de contaminação
 dos aquíferos por nitratos na Zona Vulnerável de Esposende – Vila do Conde (ZV).
 Um inventário completo e atualizado de estufas é, ao mesmo tempo, instrumento de
 controlo do cumprimento das normas e elemento de cartografia do risco: cruzado
@@ -83,7 +83,7 @@ exigia automatização.
 
 ---
 
-## Como funciona o pipeline
+## Como funciona o *pipeline*
 
 Da ortoimagem ao inventário, em dez etapas — as mesmas imagens seguem todo o
 percurso, do píxel ao polígono:
@@ -101,9 +101,9 @@ Quatro regras sustentam o pipeline:
 - **Verdade de terreno rigorosa** — estufas vetorizadas à mão sobre a ortoimagem
   segundo critério consistente; avaliação por objeto com IoU ≥ 0,3 e por área,
   robusta à fragmentação dos polígonos.
-- **Dados de treino preparados por lote** — patches de 256×256 (centrados em
+- **Dados de treino preparados por lote** — recortes de 256×256 (centrados em
   estufas, janela deslizante complementar e negativos difíceis), com aumento de
-  dados em tempo real através de um gerador `keras.utils.Sequence`. Os patches
+  dados em tempo real através de um gerador `keras.utils.Sequence`. Os recortes
   ficam em `uint8` e a normalização faz-se por lote, o que resolveu o esgotamento
   de RAM causado pelo aumento de dados pré-calculado no Colab.
 
@@ -125,7 +125,7 @@ banda.
 O ensaio de 2025 produzia demasiados falsos positivos — estradas asfaltadas,
 coberturas de edifícios — e exigia uma limpeza manual considerável. Em vez de
 correções pontuais, a campanha de 2026 diagnosticou as causas e reconstruiu o
-pipeline. Dois erros explicam quase tudo.
+*pipeline*. Dois erros explicam quase tudo.
 
 ### 1. Normalização inconsistente entre treino e inferência
 
@@ -133,7 +133,7 @@ pipeline. Dois erros explicam quase tudo.
 
 O treino usava `/255`; a inferência aplicava um estiramento de contraste por
 percentis (p2–p98). O modelo recebia píxeis numa escala que nunca tinha visto e
-classificava campos inteiros como estufa. **Correção:** `/255` em todo o pipeline.
+classificava campos inteiros como estufa. **Correção:** `/255` em todo o *pipeline*.
 Só esta alteração elevou a precisão por objeto de **0,13 para 0,85** na mesma
 máscara de teste — o fator isolado de maior impacto em todo o trabalho.
 
@@ -146,14 +146,14 @@ falsos positivos causadas pelo erro de normalização, tornou-se prejudicial dep
 de a normalização estar corrigida: eliminava silenciosamente blocos contíguos de
 túneis — ou seja, estufas reais de grande dimensão.
 
-Um contraste inicial entre recall por objeto (~0,71) e recall de área (~0,44)
+Um contraste inicial entre sensibiliodade (*recall*) por objeto (~0,71) e sensibilidade de área (~0,44)
 sugeria que o modelo localizava as estufas mas cobria apenas metade da sua
 superfície. A causa estava no **pós-processamento, não no modelo**:
 
 | Métrica | Com limite de 3 000 m² | Sem limite máximo |
 |---|---:|---:|
-| Recall por objeto | 0,60 | **0,71** |
-| Recall de área | 0,44 | **0,85** |
+| sensibilidade por objeto | 0,60 | **0,71** |
+| sensibilidade de área | 0,44 | **0,85** |
 | Área detetada (ha) | 4,77 | **9,09** |
 | Precisão por objeto | 0,82 | 0,84 |
 | Precisão de área | 0,95 | 0,96 |
@@ -202,15 +202,15 @@ Foram treinados e comparados dois modelos:
 - **E0 — referência retreinada:** U-Net (~31 M de parâmetros), perda combinada
   (0,7·Dice + 0,3·Focal Tversky), Adam `lr=5e-4`, uma única zona de treino.
   `val_dice ≈ 0,94`.
-- **E2 — encoder pré-treinado, orientado ao recall:** U-Net com encoder
-  **ResNet34** (ImageNet), perda orientada ao recall e treino **multizona**
+- **E2 — encoder pré-treinado, orientado à sensibilidade:** U-Net com encoder
+  **ResNet34** (ImageNet), perda orientada à sensibilidade e treino **multizona**
   (~3× mais dados do que o E0).
 
 ![E0 e E2 lado a lado](docs/pt/e0_e2.png)
 
 Avaliação por objeto (IoU ≥ 0,3):
 
-| Execução | Zona de teste | GT | Precisão | Recall | F1 | Nota |
+| Execução | Zona de teste | GT | Precisão | sensibilidade | F1 | Nota |
 |---|---|---:|---:|---:|---:|---|
 | Referência 2025 | máscara 1 | 33 | 0,13 | 0,76 | 0,23 | antes da correção |
 | E0 (sem filtro, limiar 0,4) | máscara 1 | 33 | 0,85 | 0,88 | 0,87 | amostra pequena |
@@ -221,7 +221,7 @@ Avaliação por objeto (IoU ≥ 0,3):
 > As execuções intermédias foram avaliadas com o limite de área ainda ativo; o
 > valor final de referência (E0, subzona rigorosa, sem limite) é o apresentado no
 > resultado principal. O F1 por objeto mantém-se estável (~0,77) nas zonas
-> representativas. A remoção do limite melhorou sobretudo o **recall de área**
+> representativas. A remoção do limite melhorou sobretudo a **sensibilidade de área**
 > (0,44 → 0,85), e não as métricas por objeto.
 
 Observações principais:
@@ -246,7 +246,7 @@ Observações principais:
 - **Pós-processamento morfológico** (preenchimento de buracos e fecho): sem efeito
   na área, porque nessa altura o limite de área a montante já tinha eliminado as
   estufas grandes — nenhuma operação a jusante as poderia recuperar. Removido o
-  limite, o recall de área subiu para ~0,85 sem necessidade de morfologia.
+  limite, a sensibilidade de área subiu para ~0,85 sem necessidade de morfologia.
 </details>
 
 ---
@@ -271,7 +271,7 @@ Observações principais:
 
 - As métricas mais fiáveis assentam em 231–536 estufas nas zonas maiores e em 83
   estufas na subzona rigorosa.
-- O recall de área (0,85) foi medido apenas na subzona rigorosa e deve ser
+- A sensibilidade de área (0,85) foi medido apenas na subzona rigorosa e deve ser
   reproduzido noutra zona.
 - Foi usada uma única fonte e época de imagem (*ortoSat2023*); a generalização
   temporal e entre sensores não foi avaliada.
@@ -304,8 +304,8 @@ Observações principais:
 - **Unidade de deteção:** bloco contíguo de cobertura plástica
 
 **Resultado de referência** (E0, subzona rigorosa, 83 estufas, ~50 ha, sem limite
-de área): precisão por objeto 0,84 · recall 0,71 · F1 0,77 — precisão de área 0,96 ·
-recall 0,85 · F1 0,90.
+de área): precisão por objeto 0,84 · sensibilidade 0,71 · F1 0,77 — precisão de área 0,96 ·
+sensibilidade 0,85 · F1 0,90.
 </details>
 
 ---
