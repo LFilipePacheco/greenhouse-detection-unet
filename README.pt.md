@@ -152,8 +152,8 @@ superfície. A causa estava no **pós-processamento, não no modelo**:
 
 | Métrica | Com limite de 3 000 m² | Sem limite máximo |
 |---|---:|---:|
-| sensibilidade por objeto | 0,60 | **0,71** |
-| sensibilidade de área | 0,44 | **0,85** |
+| Sensibilidade por objeto | 0,60 | **0,71** |
+| Sensibilidade de área | 0,44 | **0,85** |
 | Área detetada (ha) | 4,77 | **9,09** |
 | Precisão por objeto | 0,82 | 0,84 |
 | Precisão de área | 0,95 | 0,96 |
@@ -210,7 +210,7 @@ Foram treinados e comparados dois modelos:
 
 Avaliação por objeto (IoU ≥ 0,3):
 
-| Execução | Zona de teste | GT | Precisão | sensibilidade | F1 | Nota |
+| Execução | Zona de teste | GT | Precisão | Sensibilidade | F1 | Nota |
 |---|---|---:|---:|---:|---:|---|
 | Referência 2025 | máscara 1 | 33 | 0,13 | 0,76 | 0,23 | antes da correção |
 | E0 (sem filtro, limiar 0,4) | máscara 1 | 33 | 0,85 | 0,88 | 0,87 | amostra pequena |
