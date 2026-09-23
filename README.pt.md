@@ -30,7 +30,7 @@
 Avaliação sobre **verdade de terreno vetorizada de raiz** (83 estufas numa subzona
 de ~50 ha), modelo E0 sem limite máximo de área:
 
-| Tarefa | Precisão | sensibilidade | F1 |
+| Tarefa | Precisão | Sensibilidade | F1 |
 |---|---:|---:|---:|
 | **Deteção por objeto** (localizar/contar) | **0,84** | **0,71** | **0,77** |
 | **Cobertura de área** (quantificar) | **0,96** | **0,85** | **0,90** |
