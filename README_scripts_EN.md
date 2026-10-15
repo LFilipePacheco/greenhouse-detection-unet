@@ -11,14 +11,12 @@ Reference implementation of the training and detection pipeline. The paths at th
 - `treino_estufas_colab_comentado.py` - trains the E0 model (U-Net). Commented reference version.
 - `treino_estufas_E2_colab.py` - trains the E2 model (U-Net with a ResNet34 encoder pretrained on ImageNet).
 
-**3. Single-area detection** (local, CPU)
-- `deteta_estufas_DL_completo_v2.py` - applies the model to a single mask/area using a sliding window. Includes the preprocessing corrections (`/255` normalization and polygon clipping).
 
-**4. Production at Vulnerable Zone scale** (local, CPU, resumable)
+**3. Production at Vulnerable Zone scale** (local, CPU, resumable)
 - `producao_1_gerar_grelha.py` - generates the tile grid covering the zone.
 - `producao_2_inferir_tiles.py` - performs batch inference on all tiles and consolidates the results. Area filter: minimum 40 m², **no maximum area limit**.
 
-**5. Evaluation**
+**4. Evaluation**
 - `avaliar_detecao.py` - object-level evaluation (IoU ≥ 0.3), clipping the ground truth to the mask; generates diagnostic layers (TP/FP and FN).
 - `avaliar_por_area.py` - area-based evaluation (area precision, recall, and F1; global IoU), robust to polygon fragmentation.
 - `posproc_morfologico.py` - morphological post-processing test (hole filling and closing). Documented as a dead end: it has no effect on area recall after removing the maximum area limit.
