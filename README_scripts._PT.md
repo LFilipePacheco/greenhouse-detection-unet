@@ -16,17 +16,13 @@ cada script são **exemplos** — ajuste-os ao seu ambiente (pastas `data/`,
 - `treino_estufas_E2_colab.py` — treino do modelo E2 (U-Net + encoder ResNet34,
   ImageNet).
 
-**3. Deteção pontual** (local, CPU)
-- `deteta_estufas_DL_completo_v2.py` — aplica o modelo a uma máscara/área única
-  (sliding window). Inclui as correções de pré-processamento (normalização /255,
-  recorte ao polígono).
 
-**4. Produção à escala da Zona Vulnerável** (local, CPU, retomável)
+**3. Produção à escala da Zona Vulnerável** (local, CPU, retomável)
 - `producao_1_gerar_grelha.py` — gera a grelha de tiles que cobre a zona.
 - `producao_2_inferir_tiles.py` — inferência em lote sobre todos os tiles +
   consolidação. Filtro de área: mínimo 40 m², **sem teto máximo**.
 
-**5. Avaliação**
+**4. Avaliação**
 - `avaliar_detecao.py` — avaliação por objeto (IoU ≥ 0.3), com recorte da verdade
   de terreno à máscara; gera camadas de diagnóstico (TP/FP e FN).
 - `avaliar_por_area.py` — avaliação por área (precisão/recall/F1 de área, IoU
